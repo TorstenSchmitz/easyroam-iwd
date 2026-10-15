@@ -54,11 +54,11 @@ identity=$(openssl x509 -noout -subject <<<${CLIENT_CERT} | awk -F= '{print $NF}
 cat <<EOF
 [Security]
 EAP-Method=TLS
-EAP-Identity="$identity"
+EAP-Identity=${identity}
 EAP-TLS-CACert=embed:ca_cert
 EAP-TLS-ClientCert=embed:client_cert
 EAP-TLS-ClientKey=embed:client_key
-EAP-TLS-ClientKeyPassphrase="$passphrase"
+EAP-TLS-ClientKeyPassphrase=${passphrase}
 
 [Settings]
 AutoConnect=true
